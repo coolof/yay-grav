@@ -1,0 +1,35 @@
+{% embed 'partials/base.html.twig' %}
+  {% block content %}
+    <article class="blogpost">
+      <h1>{{ page.title }}</h1>
+
+      {{ page.content }}
+
+      <nav class="article-nav">
+        {% set prev = page.prevSibling %}
+        {% set next = page.nextSibling %}
+        {% set overview = page.parent %}
+
+        <div class="next-post">
+          {% if page.isFirst == false %}
+            <a href="{{ next.url }}"><strong>Next:</strong> {{ next.title }}</a>
+          {% else %}
+            <em>This is my latest post</em>
+          {% endif %}
+        </div>
+
+        <div class="overview"><a href="{{ overview.url }}">Overview</a></div>
+
+        <div class="prev-post">
+          {% if page.isLast == false %}
+            <a href="{{ prev.url }}"><strong>Prev:</strong> {{ prev.title }}</a>
+          {% else %}
+            <em>This is my first post</em>
+          {% endif %}
+        </div>
+
+      </nav>
+    </article>
+  {% endblock %}
+
+{% endembed %}

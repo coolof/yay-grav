@@ -1,0 +1,16 @@
+{% embed 'partials/base.html.twig' %}
+  {% block content %}
+    <article class="page-content">
+      {{ page.content }}
+    </article>
+
+    <div class="assetslist {{ page.header.slug }}">
+      <div class="posts">
+        {% for child in page.collection %}
+          {% include 'partials/asset_item.html.twig' with {'page':child, 'truncate':true} %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,17 @@
+<div class="post">
+  <a href="{{ page.url }}">
+    {% set preview_image = page.header.preview_image %}
+    {% set page_title = page.title %}
+
+    <div class="post-image">
+      {{ page.media[preview_image].cropResize(448).html(page_title, 'preview_image') }}
+    </div>
+
+    <div class="post-data">
+      <h2 class="post-title">{{ page.title }}</h2>
+      <div class="post-body">
+        {{ page.header.summary }}
+      </div>
+    </div>
+  </a>
+</div>

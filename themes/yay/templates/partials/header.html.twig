@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="inner clearfix">
+    <a href="/" class="logo">
+      <!--<img src="{{ theme_url }}/logo.png" alt="yay!" />-->
+    </a>
+
+    <nav class="navbar">
+      <ul class="nav">
+        {% for page in pages.children %}
+          {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+            <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</header>
